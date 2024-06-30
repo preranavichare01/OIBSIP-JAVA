@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+        .card {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title">Exam Result</h2>
+            <div class="result">
+                <p><strong>Name:</strong> <span id="candidateName"></span></p>
+                <p><strong>Score:</strong> <span id="score"></span></p>
+                <p><strong>Right Answers:</strong> <span id="rightAnswers"></span></p>
+                <p><strong>Wrong Answers:</strong> <span id="wrongAnswers"></span></p>
+                <p><strong>Status:</strong> <span id="status"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('name');
+            const score = parseFloat(params.get('score'));
+            const rightAnswers = parseInt(params.get('rightAnswers'));
+            const totalQuestions = 10;
+            const wrongAnswers = totalQuestions - rightAnswers;
+            const passPercentage = 60;
+
+            document.getElementById('candidateName').textContent = name;
+            document.getElementById('score').textContent = score.toFixed(2);
+            document.getElementById('rightAnswers').textContent = rightAnswers;
+            document.getElementById('wrongAnswers').textContent = wrongAnswers;
+
+            if (score >= passPercentage / 100 * totalQuestions) {
+                document.getElementById('status').textContent = 'Pass';
+                document.getElementById('status').classList.add('text-success');
+            } else {
+                document.getElementById('status').textContent = 'Fail';
+                document.getElementById('status').classList.add('text-danger');
+            }
+        });
+    </script>
+</body>
+</html>

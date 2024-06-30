@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Library-Management-System-main_Library-Management-System-main&apos;" deleteContents="true" description="Delete resource &apos;Library-Management-System-main_Library-Management-System-main&apos;" element1="/Library-Management-System-main_Library-Management-System-main" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1718283423186"/>
+</session>
