@@ -1,9 +1,0 @@
-package com.exam.exam.service;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface ARepository extends JpaRepository<A, Long> {
-    // Define additional methods here if needed
-}
